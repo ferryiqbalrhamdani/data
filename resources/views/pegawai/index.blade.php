@@ -51,7 +51,7 @@
                                     <td>{{$p->alamat}}</td>
                                     <td>{{$p->created_at->format('d/m/Y')}}</td>
                                     <td class="text-center">
-                                        <a href=""><span class="badge text-bg-success">Ubah</span></a>
+                                        <a href="/pegawai/ubah-data/{{$p->nip}}"><span class="badge text-bg-success">Ubah</span></a>
                                         <a href=""><span class="badge text-bg-danger">Hapus</span></a>
                                     </td>
                                 </tr>

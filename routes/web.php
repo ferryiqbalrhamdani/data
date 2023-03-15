@@ -21,3 +21,6 @@ Route::get('/', function () {
 Route::get('pegawai', [PegawaiController::class, 'index']);
 Route::get('pegawai/tambah-pegawai', [PegawaiController::class, 'tambahPegawai']);
 Route::post('pegawai/tambah-pegawai', [PegawaiController::class, 'storePegawai']);
+
+Route::get('pegawai/ubah-data/{nip}', [PegawaiController::class, 'editPegawai']);
+Route::put('pegawai/ubah-data/{nip}', [PegawaiController::class, 'updatePegawai']);

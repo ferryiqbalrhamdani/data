@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="alamat" class="form-label">Alamat</label>
-                                    <textarea class="form-control" name="alamat" value="{{old('alamat')}}" id="alamat" rows="3"></textarea>
+                                    <textarea class="form-control" name="alamat" id="alamat" rows="3">{{old('alamat')}}</textarea>
                                     @if ($errors->has('alamat'))
                                         <span class="text-danger">{{ $errors->first('alamat') }}</span>
                                     @endif
