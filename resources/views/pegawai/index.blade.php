@@ -52,7 +52,11 @@
                                     <td>{{$p->created_at->format('d/m/Y')}}</td>
                                     <td class="text-center">
                                         <a href="/pegawai/ubah-data/{{$p->nip}}"><span class="badge text-bg-success">Ubah</span></a>
-                                        <a href=""><span class="badge text-bg-danger">Hapus</span></a>
+                                        <form method="POST" action="/pegawai/hapus-data/{{$p->nip}}" style="display: inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Anda yakin ingin meghapus data?')"class="badge text-bg-danger">Hapus</button>
+                                        </form>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -70,6 +74,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    @include('sweetalert::alert')
 
     {{-- datatable --}}
     <script>

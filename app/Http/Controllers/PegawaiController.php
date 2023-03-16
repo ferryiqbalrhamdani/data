@@ -34,7 +34,7 @@ class PegawaiController extends Controller
             'alamat' => $request->alamat,
         ]);
 
-        return redirect('pegawai');
+        return redirect('pegawai')->with('toast_success', 'Data berhasil ditambah.');
     }
 
     public function editPegawai($nip) {
@@ -58,5 +58,13 @@ class PegawaiController extends Controller
         ]);
 
         return redirect('pegawai');
+    }
+
+    public function hapusPegawai(Request $request, $nip) {
+        Pegawai::where('nip', $nip)->delete();
+
+        return redirect('pegawai')->with('toast_success', 'Data berhasil dihapus.');
+
+        
     }
 }

@@ -24,3 +24,5 @@ Route::post('pegawai/tambah-pegawai', [PegawaiController::class, 'storePegawai']
 
 Route::get('pegawai/ubah-data/{nip}', [PegawaiController::class, 'editPegawai']);
 Route::put('pegawai/ubah-data/{nip}', [PegawaiController::class, 'updatePegawai']);
+
+Route::delete('pegawai/hapus-data/{nip}', [PegawaiController::class, 'hapusPegawai']);
