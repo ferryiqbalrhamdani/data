@@ -21,7 +21,13 @@
                         <div class="row ">
                             <div class="col d-flex justify-content-between">
                                 <h3>Data Pegawai</h3>
-                                <a href="/pegawai/tambah-pegawai" class="btn  btn-success">Tambah data</a>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                                    </svg> Tambah Data Pegawai
+                                </button>
+                                {{-- <a href="/pegawai/tambah-pegawai" class="btn  btn-success">Tambah data</a> --}}
 
                             </div>
                         </div>
@@ -68,6 +74,82 @@
             </div>
         </div>
     </div>
+
+    {{-- modal add data --}}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Data Pegawai</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="POST" >
+                                @csrf
+                                <div class="mb-3">
+                                    <label for="nip" class="form-label">NIP</label>
+                                    <input required type="text" class="form-control" value="{{old('nip')}}" name="nip" id="nip">
+                                    <div class="invalid-feedback">Please enter your username.</div>
+                                    @if ($errors->has('nip'))
+                                        <span class="text-danger">{{ $errors->first('nip') }}</span>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <label for="nama" class="form-label">Nama</label>
+                                    <input required type="text" class="form-control" value="{{old('nama')}}" name="nama" id="nama">
+                                    @if ($errors->has('nama'))
+                                        <span class="text-danger">{{ $errors->first('nama') }}</span>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jabatan" class="form-label">Jabatan</label>
+                                    <input type="text" class="form-control" value="{{old('jabatan')}}" name="jabatan" id="jabatan">
+                                    @if ($errors->has('jabatan'))
+                                        <span class="text-danger">{{ $errors->first('jabatan') }}</span>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <label for="jk" class="form-label">Jenis Kelamin</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="jk" value="Laki-laki" id="l" checked>
+                                                <label class="form-check-label" for="l">
+                                                    Laki-laki
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="jk" value="Perempuan" id="p" >
+                                                <label class="form-check-label" for="p">
+                                                    Perempuan
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="alamat" class="form-label">Alamat</label>
+                                    <textarea class="form-control" name="alamat" id="alamat" rows="3">{{old('alamat')}}</textarea>
+                                    @if ($errors->has('alamat'))
+                                        <span class="text-danger">{{ $errors->first('alamat') }}</span>
+                                    @endif
+                                </div>
+                                <div class="mb-3">
+                                    <button type="submit" class="btn form-control btn-primary">Simpan</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>

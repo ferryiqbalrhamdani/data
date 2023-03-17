@@ -19,6 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('pegawai', [PegawaiController::class, 'index']);
+Route::post('pegawai', [PegawaiController::class, 'storePegawai']);
 Route::get('pegawai/tambah-pegawai', [PegawaiController::class, 'tambahPegawai']);
 Route::post('pegawai/tambah-pegawai', [PegawaiController::class, 'storePegawai']);
 
